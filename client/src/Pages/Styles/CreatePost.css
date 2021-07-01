@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
+
+.createPostContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 66px);
+  width: 100vw;
+
+  background-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.6) 0%,
+      rgba(0, 0, 0, 0.6) 100%
+    ),
+    url(./Images/createPostBackground.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.createPostForm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 500px;
+  background-color: rgb(197, 203, 227);
+  border-radius: 20px;
+  padding: 20px 10px 20px 10px;
+
+  overflow: hidden;
+}
+
+.createPostForm-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 5px 0px 5px 0px;
+  width: 100%;
+}
+
+.createPostForm-label {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  color: #4056a1;
+  margin-bottom: 5px;
+}
+
+.CreateFormForm-input {
+  font-family: "Open Sans", sans-serif;
+  width: 70%;
+  height: 30px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 5px;
+  padding: 0px 10px 0px 10px;
+}
+
+.CreateFormForm-input:hover {
+  transform: scale(1.05);
+  border-bottom: solid 2px #4056a1;
+  transition: all ease-in-out 0.3s;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+.CreateFormForm-input:focus {
+  transform: scale(1.05);
+  border-bottom: #4056a1 2px solid;
+  transition: all ease-in-out 0.3s;
+}
+
+.CreateFormForm-textInput {
+  font-family: "Open Sans", sans-serif;
+  width: 70%;
+  height: 130px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+}
+
+.CreateFormForm-textInput:hover {
+  transform: scale(1.05);
+  border-bottom: solid 2px #4056a1;
+  transition: all ease-in-out 0.3s;
+}
+
+.CreateFormForm-textInput:focus {
+  transform: scale(1.05);
+  border-bottom: #4056a1 2px solid;
+  transition: all ease-in-out 0.3s;
+}
+
+.CreateForm-button {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #4056a1;
+  width: 100px;
+  height: 30px;
+  background-color: rgb(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+.CreateForm-button:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
