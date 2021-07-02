@@ -2,9 +2,12 @@ import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "./Styles/Home.css";
 import Bin from "./Styles/Images/bin.png";
+import Modal from "../Components/Modal";
 
 function Home() {
   const [postList, setPostList] = useState([]);
+  const [openModal, setOpenModal] = useState(false);
+  const [currValues, setCurrValues] = useState({});
 
   useEffect(() => {
     Axios.get("http://localhost:3001/api/get").then((response) => {
@@ -23,16 +26,6 @@ function Home() {
     });
   };
 
-  // const deleteEmployee = (id) => {
-  //   Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
-  //     setEmployeeList(
-  //       employeeList.filter((val) => {
-  //         return val.id != id;
-  //       })
-  //     );
-  //   });
-  // };
-
   return (
     <div className="home">
       <header className="homeHeader">Welcome to my blog!</header>
@@ -46,7 +39,15 @@ function Home() {
               </h3>
               <p className="postDescription">{post.description}</p>
               <div className="postActionContainer">
-                <p>Update Post</p>
+                <p
+                  onClick={() => {
+                    setOpenModal(true);
+                    setCurrValues(post);
+                    console.log(openModal);
+                  }}
+                >
+                  Update Post
+                </p>
                 <img
                   src={Bin}
                   onClick={() => {
@@ -58,6 +59,16 @@ function Home() {
           );
         })}
       </div>
+      {openModal && (
+        <Modal
+          closeModal={setOpenModal}
+          currValues={{
+            title: currValues.title,
+            user: currValues.user,
+            description: currValues.description,
+          }}
+        />
+      )}
     </div>
   );
 }

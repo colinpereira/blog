@@ -49,15 +49,21 @@ app.delete("/api/delete/:id", (req, res) => {
   });
 });
 
-// app.delete("/delete/:id", (req, res) => {
-//   const id = req.params.id;
-//   db.query("DELETE FROM employees WHERE id = ?", id, (err, result) => {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.send(result);
-//     }
-//   });
+// Route to update post
+// app.put("/update", (req, res) => {
+//   const id = req.body.id;
+//   const title = req.body.title;
+//   const user = req.body.user;
+//   const description = req.body.description;
+//   db.query("UPDATE posts SET (title, description, user) VALUES (?,?,?)"),
+//     [title, description, username],
+//     (err, result) => {
+//       if (err) {
+//         console.log(err);
+//       } else {
+//         res.send(result);
+//       }
+//     };
 // });
 
 app.listen(PORT, () => {
