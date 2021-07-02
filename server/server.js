@@ -50,21 +50,24 @@ app.delete("/api/delete/:id", (req, res) => {
 });
 
 // Route to update post
-// app.put("/update", (req, res) => {
-//   const id = req.body.id;
-//   const title = req.body.title;
-//   const user = req.body.user;
-//   const description = req.body.description;
-//   db.query("UPDATE posts SET (title, description, user) VALUES (?,?,?)"),
-//     [title, description, username],
-//     (err, result) => {
-//       if (err) {
-//         console.log(err);
-//       } else {
-//         res.send(result);
-//       }
-//     };
-// });
+app.put("/api/update", (req, res) => {
+  console.log(req.body);
+  const id = req.body.id;
+  const title = req.body.title;
+  const username = req.body.user;
+  const description = req.body.description;
+  db.query(
+    "UPDATE posts SET title = ?, description = ?, user = ? WHERE id = ?;",
+    [title, description, username, id],
+    (err, result) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(result);
+      }
+    }
+  );
+});
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

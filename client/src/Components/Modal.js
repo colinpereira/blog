@@ -2,33 +2,28 @@ import React, { useState } from "react";
 import "./Modal.css";
 import Axios from "axios";
 
-function Modal({ closeModal, currValues, submitUpdate }) {
+function Modal({
+  closeModal,
+  currValues,
+  submitUpdate,
+  setPostList,
+  postList,
+}) {
   const [newTitle, setNewTitle] = useState(currValues.title);
   const [newUser, setNewUser] = useState(currValues.user);
   const [newDescription, setNewDescription] = useState(currValues.description);
-  const id = currValues.id;
 
-  // const updatePost = (id) => {
-  //   Axios.put("http://localhost:3001/api/update", {
-  //     id: postList[val].id,
-  //     title: postList[val].title,
-  //     user: postList[val].user,
-  //     description: postList[val].description,
-  //   }).then((response) => {
-  //     setPostList(
-  //       postList.map((val) => {
-  //         return val.id == id
-  //           ? {
-  //               id: val.id,
-  //               title: val.title,
-  //               user: val.user,
-  //               description: val.description,
-  //             }
-  //           : val;
-  //       })
-  //     );
-  //   });
-  // };
+  const updatePost = () => {
+    Axios.put("http://localhost:3001/api/update", {
+      id: currValues.id,
+      title: newTitle,
+      user: newUser,
+      description: newDescription,
+    }).then(() => {
+      closeModal(false);
+      window.location.reload();
+    });
+  };
 
   return (
     <div className="modalBackground">
@@ -73,7 +68,7 @@ function Modal({ closeModal, currValues, submitUpdate }) {
           />
         </div>
         <div className="buttonContainer">
-          <button className="modalSubmit" onClick={submitUpdate}>
+          <button className="modalSubmit" onClick={updatePost}>
             Submit
           </button>
         </div>

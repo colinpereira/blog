@@ -63,10 +63,13 @@ function Home() {
         <Modal
           closeModal={setOpenModal}
           currValues={{
+            id: currValues.id,
             title: currValues.title,
             user: currValues.user,
             description: currValues.description,
           }}
+          setPostList={setPostList}
+          postList={postList}
         />
       )}
     </div>
