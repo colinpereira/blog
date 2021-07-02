@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import "./Styles/Home.css";
+import Bin from "./Styles/Images/bin.png";
 
 function Home() {
   const [postList, setPostList] = useState([]);
@@ -19,9 +20,15 @@ function Home() {
         {postList.map((post, key) => {
           return (
             <div className="post">
-              <h1>{post.title}</h1>
-              <h3>{post.user}</h3>
-              <p>{post.description}</p>
+              <h1 className="postTitle">{post.title}</h1>
+              <h3 className="postUser">
+                <b>Posted By:</b> {post.user}
+              </h3>
+              <p className="postDescription">{post.description}</p>
+              <div className="postActionContainer">
+                <p>Update Post</p>
+                <img src={Bin} />
+              </div>
             </div>
           );
         })}

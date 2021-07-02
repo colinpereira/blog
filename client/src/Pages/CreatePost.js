@@ -21,7 +21,7 @@ function CreatePost() {
 
   return (
     <div className="createPostContainer">
-      <div className="createPostForm">
+      <form className="createPostForm">
         <div className="createPostForm-row">
           <label htmlFor="username" className="createPostForm-label">
             Username
@@ -59,10 +59,10 @@ function CreatePost() {
             }}
           />
         </div>
-        <button className="CreateForm-button" onClick={submitPost}>
+        <button className="CreateForm-button" onClick={submitPost} type="reset">
           Submit
         </button>
-      </div>
+      </form>
     </div>
   );
 }
