@@ -13,6 +13,26 @@ function Home() {
     });
   }, []);
 
+  const deletePost = (id) => {
+    Axios.delete(`http://localhost:3001/api/delete/${id}`).then((response) => {
+      setPostList(
+        postList.filter((val) => {
+          return val.id != id;
+        })
+      );
+    });
+  };
+
+  // const deleteEmployee = (id) => {
+  //   Axios.delete(`http://localhost:3001/delete/${id}`).then((response) => {
+  //     setEmployeeList(
+  //       employeeList.filter((val) => {
+  //         return val.id != id;
+  //       })
+  //     );
+  //   });
+  // };
+
   return (
     <div className="home">
       <header className="homeHeader">Welcome to my blog!</header>
@@ -27,7 +47,12 @@ function Home() {
               <p className="postDescription">{post.description}</p>
               <div className="postActionContainer">
                 <p>Update Post</p>
-                <img src={Bin} />
+                <img
+                  src={Bin}
+                  onClick={() => {
+                    deletePost(post.id);
+                  }}
+                />
               </div>
             </div>
           );

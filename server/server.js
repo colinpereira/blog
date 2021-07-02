@@ -37,6 +37,29 @@ app.post("/api/create", (req, res) => {
   );
 });
 
+// Route to delete post
+app.delete("/api/delete/:id", (req, res) => {
+  const id = req.params.id;
+  db.query("DELETE FROM posts WHERE id = ?", id, (err, result) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+});
+
+// app.delete("/delete/:id", (req, res) => {
+//   const id = req.params.id;
+//   db.query("DELETE FROM employees WHERE id = ?", id, (err, result) => {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.send(result);
+//     }
+//   });
+// });
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
