@@ -4,10 +4,10 @@
 .home {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100vw;
   font-family: "Open Sans", sans-serif;
+  height: 100vh;
 }
 
 .homeHeader {
@@ -31,14 +31,22 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 20px 10px 20px 10px;
 }
 
 .postContainer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  column-gap: 30px;
+  row-gap: 30px;
+  margin: 20px 30px 20px 30px;
+  /* display: flex;
   flex-direction: column;
   flex-flow: row wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   width: 95%;
   font-family: "Open Sans", sans-serif;
 }

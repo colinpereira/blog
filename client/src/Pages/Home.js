@@ -29,6 +29,7 @@ function Home() {
   return (
     <div className="home">
       <header className="homeHeader">Welcome to my blog!</header>
+
       <div className="postContainer">
         {postList.map((post, key) => {
           return (
