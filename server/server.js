@@ -51,6 +51,7 @@ app.delete("/api/delete/:id", (req, res) => {
 
 // Route to update post
 app.put("/api/update", (req, res) => {
+  w;
   console.log(req.body);
   const id = req.body.id;
   const title = req.body.title;
@@ -69,6 +70,6 @@ app.put("/api/update", (req, res) => {
   );
 });
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT | PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
