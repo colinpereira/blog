@@ -17,6 +17,12 @@ function Navbar() {
         <Link to="/create" style={{ textDecoration: "none" }}>
           <h3 className="navLink">New Post</h3>
         </Link>
+        <Link to="/login" style={{ textDecoration: "none" }}>
+          <h3 className="navLink">Login</h3>
+        </Link>
+        <Link to="/registration" style={{ textDecoration: "none" }}>
+          <h3 className="navLink">Registration</h3>
+        </Link>
       </div>
     </nav>
   );

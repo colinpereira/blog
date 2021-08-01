@@ -12,7 +12,7 @@ function CreatePost() {
   }, [username, title, description]);
 
   const submitPost = () => {
-    Axios.post("http://localhost:3001/api/create", {
+    Axios.post("http://localhost:3001/posts/api/create", {
       username: username,
       title: title,
       description: description,

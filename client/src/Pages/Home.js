@@ -10,20 +10,22 @@ function Home() {
   const [currValues, setCurrValues] = useState({});
 
   useEffect(() => {
-    Axios.get("http://localhost:3001/api/get").then((response) => {
+    Axios.get("http://localhost:3001/posts/api/get").then((response) => {
       setPostList(response.data);
-      console.log(postList);
+      console.log(typeof response.data);
     });
   }, []);
 
   const deletePost = (id) => {
-    Axios.delete(`http://localhost:3001/api/delete/${id}`).then((response) => {
-      setPostList(
-        postList.filter((val) => {
-          return val.id != id;
-        })
-      );
-    });
+    Axios.delete(`http://localhost:3001/posts/api/delete/${id}`).then(
+      (response) => {
+        setPostList(
+          postList.filter((val) => {
+            return val.id !== id;
+          })
+        );
+      }
+    );
   };
 
   return (
@@ -31,34 +33,35 @@ function Home() {
       <header className="homeHeader">Welcome to my blog!</header>
 
       <div className="postContainer">
-        {postList.map((post, key) => {
-          return (
-            <div className="post">
-              <h1 className="postTitle">{post.title}</h1>
-              <h3 className="postUser">
-                <b>Posted By:</b> {post.user}
-              </h3>
-              <p className="postDescription">{post.description}</p>
-              <div className="postActionContainer">
-                <p
-                  onClick={() => {
-                    setOpenModal(true);
-                    setCurrValues(post);
-                    console.log(openModal);
-                  }}
-                >
-                  Update Post
-                </p>
-                <img
-                  src={Bin}
-                  onClick={() => {
-                    deletePost(post.id);
-                  }}
-                />
+        {postList &&
+          postList.map((post, key) => {
+            return (
+              <div className="post">
+                <h1 className="postTitle">{post.title}</h1>
+                <h3 className="postUser">
+                  <b>Posted By:</b> {post.user}
+                </h3>
+                <p className="postDescription">{post.description}</p>
+                <div className="postActionContainer">
+                  <p
+                    onClick={() => {
+                      setOpenModal(true);
+                      setCurrValues(post);
+                      console.log(openModal);
+                    }}
+                  >
+                    Update Post
+                  </p>
+                  <img
+                    src={Bin}
+                    onClick={() => {
+                      deletePost(post.id);
+                    }}
+                  />
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
       {openModal && (
         <Modal
