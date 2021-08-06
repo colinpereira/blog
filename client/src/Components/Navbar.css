@@ -19,7 +19,7 @@ nav {
   font-family: "Kaushan Script", cursive;
   font-size: 25px;
   height: 100%;
-  flex: 30%;
+  flex: 25%;
   margin-left: 30px;
 }
 
@@ -34,7 +34,32 @@ nav {
   justify-content: flex-end;
   flex: 70%;
   height: 100%;
+}
+
+.navRight-user {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 5%;
+  height: 85%;
   margin-right: 20px;
+
+  background-color: rgb(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
+.navRight-userInitials {
+  background-color: rgb(99, 99, 99);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15px;
+  width: 15px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 100px;
+  color: #fff;
+  font-weight: 900;
 }
 
 .navLink {
@@ -43,6 +68,15 @@ nav {
   margin: 0px 15px 0px 15px;
   text-decoration: none;
   font-size: 20px;
+}
+
+.navLink-username {
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
+  margin: 0px 15px 0px 15px;
+  text-decoration: none;
+  font-size: 20px;
+  cursor: default;
 }
 
 .navLink:hover {

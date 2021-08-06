@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const db = require("../config/db");
+const { validateToken } = require("../middlewares/authMiddleware");
 
 router.get("/api/get", (req, res) => {
   db.query("SELECT * from posts", (err, result) => {
